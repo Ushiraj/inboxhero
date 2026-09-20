@@ -20,7 +20,7 @@
     "every_message_has_disposition": true,
     "report_rule_only_count": true
   },
-    "retrieval": "thread-walk",
+    "retrieval": "keyword_search_rag_faiss_cosine_similarity",
     "irreversible": [
       "send",
       "delete"

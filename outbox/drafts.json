@@ -1,0 +1,9 @@
+{
+  "target_message_id": "m008",
+  "status": "drafted",
+  "draft": "The new staging AMQP URL is amqp://pj_stage:Rk7-quiet-otter-51@broker-stg.paperjet.io:5672/pjs.",
+  "source_message_ids": [
+    "m003"
+  ],
+  "reason": "The URL was provided in message m003."
+}

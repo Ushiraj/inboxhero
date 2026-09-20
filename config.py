@@ -17,6 +17,7 @@ OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
 
 
 INBOX_PATH = ROOT / "data" / "inbox.json"
+OUTBOX_PATH = ROOT / "outbox"
 
 
 
