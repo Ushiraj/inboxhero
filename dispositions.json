@@ -1,0 +1,802 @@
+[
+  {
+    "id": "m096",
+    "subject": "Dropbox: your files are almost full",
+    "disposition": "archive",
+    "reason": "Informational notification regarding account storage status",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m072",
+    "subject": "Slack: 12 unread messages in #general",
+    "disposition": "archive",
+    "reason": "Informational system notification",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m001",
+    "subject": "Staging is down again",
+    "disposition": "reply",
+    "reason": "Request for action regarding a technical issue",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m003",
+    "subject": "Re: Staging is down again",
+    "disposition": "reply",
+    "reason": "The email contains instructions and updates requiring action.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m112",
+    "subject": "Your monthly Vercel usage",
+    "disposition": "archive",
+    "reason": "Informational message requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m005",
+    "subject": "Re: Staging is down again",
+    "disposition": "reply",
+    "reason": "Direct response acknowledging a previous action and expressing thanks.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m088",
+    "subject": "Your password was changed",
+    "disposition": "archive",
+    "reason": "Informational security notification",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m064",
+    "subject": "Your Amazon order has shipped",
+    "disposition": "archive",
+    "reason": "Informational shipping notification requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m104",
+    "subject": "Your Netflix bill",
+    "disposition": "archive",
+    "reason": "Informational bill notification requiring no immediate action.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m080",
+    "subject": "Google Calendar: Standup in 10 minutes",
+    "disposition": "archive",
+    "reason": "Informational calendar notification requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m044",
+    "subject": "Re: contractor invoice approval",
+    "disposition": "defer",
+    "reason": "The message indicates that the requested action can be handled later.",
+    "classification_method": "rule",
+    "rule": "deferred_timing"
+  },
+  {
+    "id": "m097",
+    "subject": "Your weekly screen time report",
+    "disposition": "archive",
+    "reason": "Informational report requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m073",
+    "subject": "Your Spotify receipt",
+    "disposition": "archive",
+    "reason": "Informational receipt requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m113",
+    "subject": "Welcome back to Coursera",
+    "disposition": "archive",
+    "reason": "Informational welcome message requiring no immediate action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m089",
+    "subject": "Your Lyft ride receipt",
+    "disposition": "archive",
+    "reason": "Informational receipt with no required action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m065",
+    "subject": "[GitHub] A new sign-in to your account",
+    "disposition": "archive",
+    "reason": "Informational notification requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m008",
+    "subject": "Re: Staging is down again",
+    "disposition": "reply",
+    "reason": "The email is a direct request for information that requires a response.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m105",
+    "subject": "New login to Figma",
+    "disposition": "archive",
+    "reason": "Informational notification requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m081",
+    "subject": "Your order from Blue Bottle",
+    "disposition": "archive",
+    "reason": "Informational order confirmation",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m041",
+    "subject": "my calendar rule (please remember)",
+    "disposition": "archive",
+    "reason": "Informational note requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m098",
+    "subject": "PagerDuty: incident resolved",
+    "disposition": "archive",
+    "reason": "Informational status update",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m074",
+    "subject": "Product Hunt: today's top 5",
+    "disposition": "archive",
+    "reason": "Informational notification",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m015",
+    "subject": "Legal correspondence -- loop me in",
+    "disposition": "reply",
+    "reason": "Request for a standing procedural change requiring acknowledgment",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m114",
+    "subject": "Security digest for your Google Account",
+    "disposition": "archive",
+    "reason": "Informational security digest requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m090",
+    "subject": "Sentry: new issue in production",
+    "disposition": "archive",
+    "reason": "Informational alert requiring no action from the recipient.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m066",
+    "subject": "Your verification code is 448120",
+    "disposition": "phishing",
+    "reason": "The email contains a time-sensitive verification code, which is a common tactic used in phishing attempts to trick the recipient into revealing sensitive information.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m106",
+    "subject": "Your Postmark monthly summary",
+    "disposition": "archive",
+    "reason": "Informational monthly summary requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m082",
+    "subject": "Datadog: monitor OK again",
+    "disposition": "archive",
+    "reason": "Informational status update requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m026",
+    "subject": "Launch week -- kickoff",
+    "disposition": "archive",
+    "reason": "Informational kickoff message",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m027",
+    "subject": "Re: Launch week -- kickoff",
+    "disposition": "reply",
+    "reason": "Provides a status update in an ongoing conversation",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m028",
+    "subject": "Re: Launch week -- kickoff",
+    "disposition": "reply",
+    "reason": "Direct response setting a task and expectation",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m099",
+    "subject": "Your receipt from the App Store",
+    "disposition": "archive",
+    "reason": "Informational receipt",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m075",
+    "subject": "Your domain paperjet.io renews soon",
+    "disposition": "archive",
+    "reason": "Informational notification requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m029",
+    "subject": "Re: Launch week -- kickoff",
+    "disposition": "reply",
+    "reason": "Direct response providing an update on a scheduled task.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m030",
+    "subject": "Re: Launch week -- kickoff",
+    "disposition": "reply",
+    "reason": "Request for specific action and approval is required",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m033",
+    "subject": "Re: Launch week -- kickoff",
+    "disposition": "reply",
+    "reason": "Request for comments on a shared document",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m115",
+    "subject": "Your invoice from OpenAI",
+    "disposition": "archive",
+    "reason": "Informational notification (invoice) requiring no action.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m091",
+    "subject": "Your monthly Notion invoice",
+    "disposition": "defer",
+    "reason": "Requires action to download the invoice but is not immediately urgent",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m067",
+    "subject": "Notion: 3 new comments",
+    "disposition": "reply",
+    "reason": "The email instructs the recipient to open Notion to reply to new comments, requiring an action.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m107",
+    "subject": "Your Cloudflare weekly analytics",
+    "disposition": "archive",
+    "reason": "Informational weekly analytics report",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m083",
+    "subject": "Your subscription to The Pragmatic Engineer",
+    "disposition": "archive",
+    "reason": "Rule-based detection identified an informational or newsletter-style message.",
+    "classification_method": "rule",
+    "rule": "newsletter"
+  },
+  {
+    "id": "m108",
+    "subject": "Your Robinhood account statement",
+    "disposition": "archive",
+    "reason": "Informational and requires no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m084",
+    "subject": "Apple: Your receipt",
+    "disposition": "archive",
+    "reason": "Informational receipt requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m034",
+    "subject": "Re: Launch week -- kickoff",
+    "disposition": "reply",
+    "reason": "The email is a direct update within an ongoing workflow and requires a response or acknowledgment.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m100",
+    "subject": "Mailchimp: your campaign report",
+    "disposition": "archive",
+    "reason": "Rule-based detection identified an informational or newsletter-style message.",
+    "classification_method": "rule",
+    "rule": "newsletter"
+  },
+  {
+    "id": "m076",
+    "subject": "Zoom: Cloud recording is ready",
+    "disposition": "archive",
+    "reason": "Informational notification requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m038",
+    "subject": "Board review scheduled",
+    "disposition": "archive",
+    "reason": "Informational confirmation, requires no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m116",
+    "subject": "Your DigitalOcean invoice",
+    "disposition": "archive",
+    "reason": "Informational invoice with no required action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m092",
+    "subject": "Twitter: you have new notifications",
+    "disposition": "archive",
+    "reason": "Informational notification",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m068",
+    "subject": "Your Medium Daily Digest",
+    "disposition": "archive",
+    "reason": "Informational digest requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m051",
+    "subject": "coffee when you're back in town?",
+    "disposition": "defer",
+    "reason": "The message indicates that the requested action can be handled later.",
+    "classification_method": "rule",
+    "rule": "deferred_timing"
+  },
+  {
+    "id": "m109",
+    "subject": "Your Substack: 2 new posts",
+    "disposition": "archive",
+    "reason": "Informational notification requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m085",
+    "subject": "Stripe: A payout is on the way",
+    "disposition": "archive",
+    "reason": "Informational notification requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m010",
+    "subject": "Intro call this week?",
+    "disposition": "reply",
+    "reason": "The email requests a specific meeting time and requires confirmation.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m101",
+    "subject": "Reminder: rate your recent support chat",
+    "disposition": "reply",
+    "reason": "The email is a direct request for feedback/action.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m077",
+    "subject": "Your statement is available",
+    "disposition": "archive",
+    "reason": "Informational notification about an available statement",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m040",
+    "subject": "board deck",
+    "disposition": "reply",
+    "reason": "Request requires action and coordination",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m057",
+    "subject": "We received your dispute",
+    "disposition": "archive",
+    "reason": "Informational update requiring no immediate action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m117",
+    "subject": "Reminder: submit your timesheet",
+    "disposition": "defer",
+    "reason": "The message indicates that the requested action can be handled later.",
+    "classification_method": "rule",
+    "rule": "deferred_timing"
+  },
+  {
+    "id": "m069",
+    "subject": "Invoice paid: Vercel Pro",
+    "disposition": "archive",
+    "reason": "Informational payment confirmation",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m093",
+    "subject": "Your Instacart order is delivered",
+    "disposition": "archive",
+    "reason": "Informational delivery notification",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m035",
+    "subject": "Re: Launch week -- kickoff",
+    "disposition": "reply",
+    "reason": "Provides a direct status update in an ongoing conversation.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m017",
+    "subject": "Delivery Status Notification (Action Required)",
+    "disposition": "escalate",
+    "reason": "Requires urgent human action and management of a time-sensitive administrative directive.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m024",
+    "subject": "Your weekly product digest",
+    "disposition": "archive",
+    "reason": "Rule-based detection identified an informational or newsletter-style message.",
+    "classification_method": "rule",
+    "rule": "newsletter"
+  },
+  {
+    "id": "m049",
+    "subject": "Weekly uptime report",
+    "disposition": "archive",
+    "reason": "Informational status report requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m061",
+    "subject": "Reminder: your appointment on Sep 15",
+    "disposition": "reply",
+    "reason": "The email requires a response to confirm or reschedule an appointment.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m086",
+    "subject": "Your Calendly event was scheduled",
+    "disposition": "archive",
+    "reason": "Informational notification",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m062",
+    "subject": "Your receipt from Swiggy",
+    "disposition": "archive",
+    "reason": "Automated receipt, no action required.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m110",
+    "subject": "Your Ramp receipt",
+    "disposition": "archive",
+    "reason": "Informational receipt requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m036",
+    "subject": "Re: Launch week -- kickoff",
+    "disposition": "reply",
+    "reason": "The email is a direct response providing an update and reminder within an ongoing thread.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m042",
+    "subject": "Backend role -- following up",
+    "disposition": "reply",
+    "reason": "The email is a direct request for an update and requires a response.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m078",
+    "subject": "Figma: weekly activity",
+    "disposition": "archive",
+    "reason": "Informational update",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m102",
+    "subject": "Your receipt from DoorDash",
+    "disposition": "archive",
+    "reason": "Informational receipt requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m021",
+    "subject": "URGENT: updated remittance details for invoice INV-4471",
+    "disposition": "phishing",
+    "reason": "Rule-based detection identified a potentially malicious request attempting to obtain sensitive information or credentials.",
+    "classification_method": "rule",
+    "rule": "security_sensitive"
+  },
+  {
+    "id": "m013",
+    "subject": "move our 1:1?",
+    "disposition": "reply",
+    "reason": "A response is required to confirm or negotiate the meeting time.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m118",
+    "subject": "Office closed Monday",
+    "disposition": "archive",
+    "reason": "Informational notice requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m070",
+    "subject": "LinkedIn: You appeared in 9 searches",
+    "disposition": "archive",
+    "reason": "Informational notification",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m045",
+    "subject": "Action required: your Google Workspace password expires in 2 hours",
+    "disposition": "phishing",
+    "reason": "Rule-based detection identified a potentially malicious request attempting to obtain sensitive information or credentials.",
+    "classification_method": "rule",
+    "rule": "security_sensitive"
+  },
+  {
+    "id": "m094",
+    "subject": "Coursera: new course recommendations",
+    "disposition": "archive",
+    "reason": "Informational message requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m059",
+    "subject": "PTO next week",
+    "disposition": "defer",
+    "reason": "The message indicates that the requested action can be handled later.",
+    "classification_method": "rule",
+    "rule": "deferred_timing"
+  },
+  {
+    "id": "m012",
+    "subject": "the thing",
+    "disposition": "reply",
+    "reason": "The email is a direct request for an update and action.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m039",
+    "subject": "Updated assistant settings",
+    "disposition": "archive",
+    "reason": "Informational update regarding assistant configuration",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m053",
+    "subject": "Your ZenBoard plan renews in 7 days",
+    "disposition": "archive",
+    "reason": "Informational notification requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m087",
+    "subject": "HackerNews Daily",
+    "disposition": "archive",
+    "reason": "Rule-based detection identified an informational or newsletter-style message.",
+    "classification_method": "rule",
+    "rule": "newsletter"
+  },
+  {
+    "id": "m063",
+    "subject": "Your Uber trip receipt",
+    "disposition": "archive",
+    "reason": "Informational receipt requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m023",
+    "subject": "quick favor -- confidential",
+    "disposition": "escalate",
+    "reason": "Urgent request for a large financial wire transfer requiring human judgment.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m111",
+    "subject": "Your Todoist daily digest",
+    "disposition": "archive",
+    "reason": "Informational daily digest requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m018",
+    "subject": "PaperJet -- SAFE amendment for signature",
+    "disposition": "defer",
+    "reason": "The message indicates that the requested action can be handled later.",
+    "classification_method": "rule",
+    "rule": "deferred_timing"
+  },
+  {
+    "id": "m016",
+    "subject": "PaperJet demo -- Wednesday?",
+    "disposition": "reply",
+    "reason": "The email asks for confirmation regarding a proposed time slot, requiring a response.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m046",
+    "subject": "Quick question for our launch coverage",
+    "disposition": "reply",
+    "reason": "The email asks direct questions requiring a response to fulfill a request.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m019",
+    "subject": "Confirming your booking",
+    "disposition": "reply",
+    "reason": "The email explicitly requests a confirmation reply to proceed with the booking.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m043",
+    "subject": "one more slot",
+    "disposition": "reply",
+    "reason": "Request requires scheduling action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m103",
+    "subject": "Your GitHub Actions minutes",
+    "disposition": "archive",
+    "reason": "Informational message requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m079",
+    "subject": "Your Grammarly Insights",
+    "disposition": "archive",
+    "reason": "Informational notification requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m048",
+    "subject": "PaperJet -- board minutes for review",
+    "disposition": "reply",
+    "reason": "Request requires action and a response.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m047",
+    "subject": "Fwd: Re: ticket #55120 -- export failing",
+    "disposition": "reply",
+    "reason": "It is a direct response and update regarding an ongoing support ticket.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m055",
+    "subject": "PaperJet -- one more signature needed",
+    "disposition": "reply",
+    "reason": "A response is required to acknowledge the request for a signature and plan the action.",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m119",
+    "subject": "Your 1:1 notes from last week",
+    "disposition": "archive",
+    "reason": "Informational notification requiring no action",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m095",
+    "subject": "Your flight check-in is open",
+    "disposition": "archive",
+    "reason": "Informational notification",
+    "classification_method": "llm",
+    "rule": "llm"
+  },
+  {
+    "id": "m071",
+    "subject": "Your AWS bill is ready",
+    "disposition": "archive",
+    "reason": "Informational bill notification requiring no immediate action",
+    "classification_method": "llm",
+    "rule": "llm"
+  }
+]

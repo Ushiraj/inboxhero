@@ -3,22 +3,30 @@
   "repo": "https://github.com/Ushiraj/inboxhero",
   "system": {
     "framework": "none",
-    "model": "gemini-1.5-flash for triage and drafting; gemini-1.5-pro for the conflict check. Developed against a local llama3.1:8b via Ollama to avoid rate limits.",
-    "messages_processed": 24,
+    "model": "gemini-3.5-flash-lite for overall pipeline. Developed against a local gemma4:e2b via Ollama to avoid rate limits.",
+    "messages_processed": 100,
     "rule_handled": 11,
+    "llm_classified":89,
     "dispositions": [
       "reply",
       "archive",
+      "spam",
+      "phishing",
       "defer",
       "delegate",
       "escalate"
     ],
+      "requirement": {
+    "every_message_has_disposition": true,
+    "report_rule_only_count": true
+  },
     "retrieval": "thread-walk",
     "irreversible": [
       "send",
       "delete"
     ],
     "reversible": [
+
       "draft",
       "label",
       "archive",
