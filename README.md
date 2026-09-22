@@ -1,3 +1,3 @@
 # inboxhero
 
-https://github.com/Ushiraj/inboxhero
+https://github.com/Ushiraj/inboxhero.git
