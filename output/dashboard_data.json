@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-09-22T09:39:18.280936",
+  "pending_actions": [
+    {
+      "message_id": "m008",
+      "subject": "Re: Staging is down again",
+      "proposed_action": "send",
+      "why_human_required": "Sending is irreversible. Part 4 requires explicit human approval before the message may be written to outbox/.",
+      "current_status": "dry_run_only"
+    }
+  ],
+  "flagged": [
+    {
+      "message_id": "m066",
+      "subject": "Your verification code is 448120",
+      "category": "phishing",
+      "attempted": "The email contains a time-sensitive verification code, which is a common tactic used in phishing attempts to trick the recipient into revealing sensitive information.",
+      "system_response": "Classified as phishing and prevented from triggering an automatic action."
+    },
+    {
+      "message_id": "m021",
+      "subject": "URGENT: updated remittance details for invoice INV-4471",
+      "category": "phishing",
+      "attempted": "Rule-based detection identified a potentially malicious request attempting to obtain sensitive information or credentials.",
+      "system_response": "Classified as phishing and prevented from triggering an automatic action."
+    },
+    {
+      "message_id": "m045",
+      "subject": "Action required: your Google Workspace password expires in 2 hours",
+      "category": "phishing",
+      "attempted": "Rule-based detection identified a potentially malicious request attempting to obtain sensitive information or credentials.",
+      "system_response": "Classified as phishing and prevented from triggering an automatic action."
+    }
+  ],
+  "commitments": [],
+  "summary": {
+    "pending_actions": 1,
+    "flagged": 3,
+    "commitments": 0,
+    "multi_message_commitments": 0,
+    "conflicts": 0
+  }
+}

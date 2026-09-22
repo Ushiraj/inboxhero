@@ -1,9 +1,17 @@
+# =========================================================
+# PART 1 - ZERO INBOX
+# =========================================================
+
+
 import json
 import re
 from pathlib import Path
 from config import *
 from google import genai
 import ollama
+
+from hostile_inbox import security_gate, get_safe_inbox
+
 
 
 DISPOSITIONS = {
@@ -65,13 +73,10 @@ else:
 
 def load_inbox():
 
-    with open(
-        INBOX_PATH,
-        "r",
-        encoding="utf-8"
-    ) as f:
+    # with open(INBOX_PATH,"r",encoding="utf-8") as f:
+    #     return json.load(f)
 
-        return json.load(f)
+    return get_inbox()
 
 
 # =========================================================
@@ -562,8 +567,8 @@ Body:
 
 def process_inbox():
 
-    emails = load_inbox()
-
+    # emails = load_inbox()
+    emails = get_safe_inbox()
     results = []
 
     rule_classified = 0

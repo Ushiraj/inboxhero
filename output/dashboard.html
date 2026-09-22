@@ -1,0 +1,593 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+    Email Agent Dashboard
+</title>
+
+
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family:
+            Inter,
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            sans-serif;
+
+        background: #f5f6f8;
+        color: #20242a;
+    }
+
+
+    .container {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 36px;
+    }
+
+
+    .dashboard-header {
+        margin-bottom: 28px;
+    }
+
+
+    .dashboard-header h1 {
+        margin: 0 0 8px 0;
+        font-size: 32px;
+        font-weight: 700;
+    }
+
+
+    .dashboard-header p {
+        margin: 0;
+        color: #667085;
+        font-size: 14px;
+    }
+
+
+    .run-summary {
+        display: flex;
+        gap: 12px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+    }
+
+
+    .summary-item {
+        background: white;
+        border: 1px solid #e4e7ec;
+        border-radius: 8px;
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+
+
+    /*
+       EXACTLY THREE MAIN PANES
+    */
+
+    .dashboard-grid {
+        display: grid;
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        align-items: start;
+    }
+
+
+    .pane {
+        background: white;
+        border: 1px solid #e4e7ec;
+        border-radius: 12px;
+        padding: 20px;
+        min-width: 0;
+    }
+
+
+    .pane-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+    }
+
+
+    .pane-number {
+        font-size: 11px;
+        letter-spacing: 0.15em;
+        color: #98a2b3;
+        font-weight: 700;
+    }
+
+
+    .pane h2 {
+        margin: 4px 0 0 0;
+        font-size: 21px;
+    }
+
+
+    .count {
+        min-width: 34px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 17px;
+        background: #f2f4f7;
+        font-weight: 700;
+    }
+
+
+    .description {
+        color: #667085;
+        font-size: 13px;
+        line-height: 1.5;
+        margin: 14px 0 18px 0;
+    }
+
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 12px;
+    }
+
+
+    th {
+        text-align: left;
+        color: #667085;
+        font-weight: 600;
+        padding: 10px 8px;
+        border-bottom: 1px solid #e4e7ec;
+    }
+
+
+    td {
+        vertical-align: top;
+        padding: 12px 8px;
+        border-bottom: 1px solid #f0f1f3;
+        line-height: 1.45;
+    }
+
+
+    .subtext {
+        color: #667085;
+        font-size: 11px;
+        margin-top: 4px;
+    }
+
+
+    .action-badge {
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 6px;
+        background: #fff4e5;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+
+    .flag-category {
+        display: inline-block;
+        margin-top: 7px;
+        padding: 3px 6px;
+        border-radius: 5px;
+        background: #fff1f0;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+
+    .calendar {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+
+    .commitment-card {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        border: 1px solid #e4e7ec;
+        border-radius: 9px;
+        overflow: hidden;
+    }
+
+
+    .calendar-date {
+        padding: 14px 10px;
+        background: #f8f9fb;
+        border-right: 1px solid #e4e7ec;
+    }
+
+
+    .date-value {
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+
+    .time-value {
+        margin-top: 5px;
+        color: #667085;
+        font-size: 11px;
+    }
+
+
+    .commitment-body {
+        padding: 13px;
+        min-width: 0;
+    }
+
+
+    .commitment-title {
+        font-weight: 700;
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+
+
+    .source-section {
+        margin-top: 9px;
+    }
+
+
+    .source-label {
+        font-size: 10px;
+        color: #667085;
+        margin-right: 5px;
+    }
+
+
+    .source-badge {
+        display: inline-block;
+        margin: 2px;
+        padding: 3px 6px;
+        background: #eef4ff;
+        border-radius: 5px;
+        font-family: monospace;
+        font-size: 10px;
+    }
+
+
+    .multi-badge {
+        display: inline-block;
+        padding: 3px 6px;
+        background: #ecfdf3;
+        border-radius: 5px;
+        font-size: 9px;
+        font-weight: 700;
+    }
+
+
+    .conflict-card {
+        border: 2px solid #d92d20;
+    }
+
+
+    .conflict-box {
+        margin-top: 11px;
+        padding: 9px;
+        border-radius: 6px;
+        background: #fff1f0;
+        font-size: 11px;
+        line-height: 1.4;
+    }
+
+
+    .conflict-box strong {
+        display: block;
+        margin-bottom: 3px;
+    }
+
+
+    .conflict-box ul {
+        padding-left: 17px;
+        margin-bottom: 0;
+    }
+
+
+    .empty {
+        padding: 24px;
+        text-align: center;
+        color: #98a2b3;
+        font-size: 12px;
+    }
+
+
+    .muted {
+        color: #98a2b3;
+    }
+
+
+    @media (
+        max-width: 1100px
+    ) {
+
+        .dashboard-grid {
+            grid-template-columns: 1fr;
+        }
+
+    }
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <header class="dashboard-header">
+
+        <h1>
+            Email Agent Dashboard
+        </h1>
+
+        <p>
+            Reproducible view generated from completed
+            agent-run artifacts.
+        </p>
+
+        <div class="run-summary">
+
+            <div class="summary-item">
+                Pending:
+                <strong>
+                    1
+                </strong>
+            </div>
+
+            <div class="summary-item">
+                Flagged:
+                <strong>
+                    3
+                </strong>
+            </div>
+
+            <div class="summary-item">
+                Commitments:
+                <strong>
+                    0
+                </strong>
+            </div>
+
+            <div class="summary-item">
+                Multi-message:
+                <strong>
+                    0
+                </strong>
+            </div>
+
+            <div class="summary-item">
+                Conflicts:
+                <strong>
+                    0
+                </strong>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="dashboard-grid">
+
+        
+    <section class="pane">
+        <div class="pane-header">
+            <div>
+                <div class="pane-number">01</div>
+                <h2>Pending actions</h2>
+            </div>
+            <div class="count">1</div>
+        </div>
+
+        <p class="description">
+            Actions proposed by the system that require
+            human authorization under Part 4.
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Message</th>
+                    <th>Proposed action</th>
+                    <th>Why human approval is required</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                
+        <tr>
+            <td>
+                <strong>
+                    m008
+                </strong>
+                <div class="subtext">
+                    Re: Staging is down again
+                </div>
+            </td>
+
+            <td>
+                <span class="action-badge">
+                    send
+                </span>
+            </td>
+
+            <td>
+                Sending is irreversible. Part 4 requires explicit human approval before the message may be written to outbox/.
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </section>
+    
+
+        
+    <section class="pane">
+        <div class="pane-header">
+            <div>
+                <div class="pane-number">02</div>
+                <h2>Flagged</h2>
+            </div>
+            <div class="count">3</div>
+        </div>
+
+        <p class="description">
+            Requests the system refused to act on, including
+            hostile instructions, phishing and insufficiently
+            grounded replies.
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Message</th>
+                    <th>What was attempted</th>
+                    <th>What the system did instead</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                
+        <tr>
+            <td>
+                <strong>
+                    m066
+                </strong>
+
+                <div class="subtext">
+                    Your verification code is 448120
+                </div>
+
+                <div class="flag-category">
+                    phishing
+                </div>
+            </td>
+
+            <td>
+                The email contains a time-sensitive verification code, which is a common tactic used in phishing attempts to trick the recipient into revealing sensitive information.
+            </td>
+
+            <td>
+                Classified as phishing and prevented from triggering an automatic action.
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <strong>
+                    m021
+                </strong>
+
+                <div class="subtext">
+                    URGENT: updated remittance details for invoice INV-4471
+                </div>
+
+                <div class="flag-category">
+                    phishing
+                </div>
+            </td>
+
+            <td>
+                Rule-based detection identified a potentially malicious request attempting to obtain sensitive information or credentials.
+            </td>
+
+            <td>
+                Classified as phishing and prevented from triggering an automatic action.
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <strong>
+                    m045
+                </strong>
+
+                <div class="subtext">
+                    Action required: your Google Workspace password expires in 2 hours
+                </div>
+
+                <div class="flag-category">
+                    phishing
+                </div>
+            </td>
+
+            <td>
+                Rule-based detection identified a potentially malicious request attempting to obtain sensitive information or credentials.
+            </td>
+
+            <td>
+                Classified as phishing and prevented from triggering an automatic action.
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </section>
+    
+
+        
+    <section class="pane commitments-pane">
+
+        <div class="pane-header">
+            <div>
+                <div class="pane-number">03</div>
+                <h2>Commitments</h2>
+            </div>
+
+            <div class="count">
+                0
+            </div>
+        </div>
+
+        <p class="description">
+            Dates, deadlines and obligations extracted from
+            the inbox. Source message IDs are verified against
+            the mail store. Scheduling conflicts are surfaced
+            explicitly.
+        </p>
+
+        <div class="calendar">
+            
+        <div class="empty">
+            No dated commitments were extracted.
+        </div>
+        
+        </div>
+
+    </section>
+    
+
+    </main>
+
+</div>
+
+</body>
+
+</html>

@@ -3,7 +3,7 @@
   "repo": "https://github.com/Ushiraj/inboxhero",
   "system": {
     "framework": "none",
-    "model": "gemini-3.5-flash-lite for overall pipeline. Developed against a local gemma4:e2b via Ollama to avoid rate limits.",
+    "model": "gemini-3.5-flash-lite for overall pipeline. Developed against a local gemma4:e2b via Ollama for testing to avoid rate limits.",
     "messages_processed": 100,
     "rule_handled": 11,
     "llm_classified":89,
