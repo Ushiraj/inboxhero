@@ -13,7 +13,7 @@ load_dotenv(env_path)
 
 MODEL_PROVIDER = os.getenv("MODEL_PROVIDER")
 MODEL_NAME = os.getenv("MODEL_NAME")
-# API_KEY = os.getenv("GEMINI_API_KEY")
+API_KEY = os.getenv("GEMINI_API_KEY")
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
 
 

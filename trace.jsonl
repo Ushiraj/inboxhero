@@ -1,0 +1,18 @@
+{"timestamp": "2026-09-22T05:29:21.892097+00:00", "cap": "R1", "event": "demo_invocation"}
+{"timestamp": "2026-09-22T05:29:21.894886+00:00", "cap": "R1", "event": "start"}
+{"timestamp": "2026-09-22T05:29:27.429483+00:00", "cap": "R1", "event": "demo_error", "status": "error", "error_type": "ClientError", "error": "401 UNAUTHENTICATED. {'error': {'code': 401, 'message': 'Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.', 'status': 'UNAUTHENTICATED', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'ACCESS_TOKEN_TYPE_UNSUPPORTED', 'metadata': {'method': 'google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent', 'service': 'generativelanguage.googleapis.com'}}]}}"}
+{"timestamp": "2026-09-22T05:29:59.948768+00:00", "cap": "R2", "event": "demo_invocation"}
+{"timestamp": "2026-09-22T05:29:59.950722+00:00", "cap": "R2", "event": "start", "message_id": "m008"}
+{"timestamp": "2026-09-22T05:31:16.071504+00:00", "cap": "R2", "event": "demo_error", "status": "error", "error_type": "NameError", "error": "name 'get_inbox' is not defined"}
+{"timestamp": "2026-09-22T05:35:17.394909+00:00", "cap": "R2", "event": "demo_invocation"}
+{"timestamp": "2026-09-22T05:35:17.396858+00:00", "cap": "R2", "event": "start", "message_id": "m008"}
+{"timestamp": "2026-09-22T05:35:45.599731+00:00", "cap": "R2", "event": "demo_error", "status": "error", "error_type": "NameError", "error": "name 'client' is not defined"}
+{"timestamp": "2026-09-22T05:43:33.855947+00:00", "cap": "R2", "event": "demo_invocation"}
+{"timestamp": "2026-09-22T05:43:33.858110+00:00", "cap": "R2", "event": "start", "message_id": "m008"}
+{"timestamp": "2026-09-22T05:44:02.150368+00:00", "cap": "R2", "event": "demo_error", "status": "error", "error_type": "ClientError", "error": "401 UNAUTHENTICATED. {'error': {'code': 401, 'message': 'Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.', 'status': 'UNAUTHENTICATED', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'ACCESS_TOKEN_TYPE_UNSUPPORTED', 'metadata': {'method': 'google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent', 'service': 'generativelanguage.googleapis.com'}}]}}"}
+{"timestamp": "2026-09-22T05:46:59.115582+00:00", "cap": "R2", "event": "demo_invocation"}
+{"timestamp": "2026-09-22T05:46:59.117586+00:00", "cap": "R2", "event": "start", "message_id": "m008"}
+{"timestamp": "2026-09-22T05:50:11.582992+00:00", "cap": "R2", "event": "draft", "message_id": "m008", "status": "drafted", "cited_message_ids": ["m003"], "grounded": true}
+{"timestamp": "2026-09-22T05:50:11.588700+00:00", "cap": "R2", "event": "demo_complete", "status": "success"}
+{"timestamp": "2026-09-22T05:51:54.462875+00:00", "cap": "R1", "event": "demo_invocation"}
+{"timestamp": "2026-09-22T05:51:54.465192+00:00", "cap": "R1", "event": "start"}

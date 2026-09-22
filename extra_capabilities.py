@@ -26,14 +26,9 @@ from read_inbox import (
 # OUTPUT DIRECTORIES
 # =========================================================
 
-PART8_OUTPUT_PATH = (
-    OUTPUT_PATH / "part8"
-)
+PART8_OUTPUT_PATH = (OUTPUT_PATH / "part8")
 
-PART8_OUTPUT_PATH.mkdir(
-    parents=True,
-    exist_ok=True
-)
+PART8_OUTPUT_PATH.mkdir(parents=True,exist_ok=True )
 
 
 DIGEST_FILE = (
@@ -1965,7 +1960,7 @@ def show_capabilities():
 # COMMAND LINE INTERFACE
 # =========================================================
 
-def main():
+def extra_capabilities():
     """
     Each Part 8 capability can be executed independently
     with one command.

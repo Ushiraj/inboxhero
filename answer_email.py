@@ -5,6 +5,7 @@
 
 import json
 import re
+from hostile_inbox import *
 from read_inbox import *
 from config import OUTBOX_PATH
 import numpy as np
@@ -831,7 +832,7 @@ def answer_email(message_id):
     """
 
 
-    emails = load_inbox()
+    emails = get_safe_inbox()
 
 
     # -----------------------------------------------------

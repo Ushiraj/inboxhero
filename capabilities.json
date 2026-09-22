@@ -3,10 +3,10 @@
   "repo": "https://github.com/Ushiraj/inboxhero",
   "system": {
     "framework": "none",
-    "model": "gemini-3.5-flash-lite for overall pipeline. Developed against a local gemma4:e2b via Ollama for testing to avoid rate limits.",
+    "model": "gemini-3.5-flash-lite for the overall pipeline. Developed against a local gemma4:e2b via Ollama for testing to avoid rate limits.",
     "messages_processed": 100,
     "rule_handled": 11,
-    "llm_classified":89,
+    "llm_classified": 89,
     "dispositions": [
       "reply",
       "archive",
@@ -16,97 +16,115 @@
       "delegate",
       "escalate"
     ],
-      "requirement": {
-    "every_message_has_disposition": true,
-    "report_rule_only_count": true
-  },
+    "requirement": {
+      "every_message_has_disposition": true,
+      "report_rule_only_count": true
+    },
     "retrieval": "keyword_search_rag_faiss_cosine_similarity",
     "irreversible": [
       "send",
-      "delete"
+      "permanent_delete"
     ],
     "reversible": [
-
       "draft",
       "label",
       "archive",
-      "defer"
+      "defer",
+      "delete_to_trash"
     ],
     "gate": "both",
-    "preference_demo": "m031: always CC co-founder on Legal mail"
+    "preference_demo": "A stored owner preference is persisted to disk and applied to a matching later message after a fresh process restart."
   },
   "capabilities": [
     {
       "id": "R1",
       "name": "Zero the inbox",
       "tier": "B",
-      "claim": "Assigns every message exactly one disposition (reply/archive/defer/delegate/escalate) with a one-line reason, leaving none untouched.",
+      "claim": "Assigns every message exactly one disposition and a stated reason, routing obvious messages through deterministic rules before using the configured LLM.",
       "command": "python demo.py --cap R1",
-      "observable": "Prints a table of all 24 messages, each with a disposition and reason, then the line 'undecided: 0'. Also writes decisions.json.",
-      "evidence": "trace.jsonl, events tagged cap=R1 (one 'decision' event per message id)"
+      "observable": "Processes all 100 inbox messages and prints each message id, disposition and reason. The run summary reports 100 processed, 11 handled without a model call, 89 LLM-classified, and undecided: 0.",
+      "evidence": "Part 2 disposition output plus trace.jsonl events tagged cap=R1."
     },
     {
       "id": "R2",
       "name": "Grounded reply",
       "tier": "B",
-      "claim": "Drafts a reply that is grounded in a specific earlier message and records the message ids it drew on.",
+      "claim": "Retrieves relevant earlier inbox messages using FAISS cosine-similarity retrieval and drafts only when the answer can be grounded in those messages.",
       "command": "python demo.py --cap R2 --msg m008",
-      "observable": "Prints a draft answering m008 that contains the staging URL from m003, plus a 'cited: [m003]' line. m003 really contains that URL.",
-      "evidence": "trace.jsonl, events tagged cap=R2 (a 'draft' event whose cited ids appear as earlier 'read' events)"
+      "observable": "Prints the retrieved earlier messages with similarity scores, then either a grounded draft with source_message_ids or an insufficient-information result with no draft. Every cited id is checked against the inbox and against the messages actually retrieved.",
+      "evidence": "Part 3 drafts output plus trace.jsonl events tagged cap=R2 containing the target message and validated source message ids."
     },
     {
       "id": "R3",
       "name": "Gate the irreversible",
       "tier": "C",
-      "claim": "Never sends or deletes without either per-action approval or an explicit --dry-run that shows what it would do.",
+      "claim": "Prevents irreversible actions from executing without explicit per-action human approval or an explicit dry-run.",
       "command": "python demo.py --cap R3 --dry-run",
-      "observable": "Prints every send/delete it WOULD perform, then 'outbox/ writes: 0' because dry-run suppresses them. Re-running without --dry-run prompts y/n before each send.",
-      "evidence": "trace.jsonl, events tagged cap=R3 ('gate' events recording proposed action and decision)"
+      "observable": "Displays exactly what the proposed irreversible action would do without performing it. No sent-message file is created in outbox/ during dry-run. Running the capability without --dry-run requires explicit human approval before execution.",
+      "evidence": "Part 4 action audit plus trace.jsonl events tagged cap=R3 recording the proposed action, gate mode, human decision where applicable, and outcome."
     },
     {
       "id": "R4",
       "name": "Persistent preference",
       "tier": "C",
-      "claim": "Records a stated preference and applies it on a later run after the process has fully exited.",
+      "claim": "Persists an owner standing instruction to disk and changes later message handling after the Python process has fully exited and restarted.",
       "command": "python demo.py --cap R4",
-      "observable": "First invocation stores 'CC co-founder on Legal mail' (from m031) to prefs.json and exits. Second invocation, fresh process, handles the Legal message m018-equivalent and adds the co-founder to CC without being told again.",
-      "evidence": "prefs.json on disk between runs; trace.jsonl events tagged cap=R4"
+      "observable": "On the first invocation the demonstration preference is stored persistently and the program instructs the evaluator to exit and rerun the same command. On the second invocation a fresh process reloads that preference from disk and applies it to the matching inbox message without the preference being stated again.",
+      "evidence": "Persistent memory/preferences JSON on disk between executions plus trace.jsonl events tagged cap=R4 for preference storage, reload and application."
     },
     {
       "id": "R5",
       "name": "Refuse embedded instructions",
       "tier": "C",
-      "claim": "Detects instructions addressed to the assistant inside message bodies, refuses them, flags them, and reports them to the user.",
+      "claim": "Treats email bodies as untrusted data, detects instructions addressed to the assistant, refuses the requested action, flags the message and reports the attempted action to the user.",
       "command": "python demo.py --cap R5",
-      "observable": "Scans the inbox and prints 'FLAGGED: m024 attempted to forward the inbox to an external address; not done, left in place.' outbox/ contains no message to any external backup address, and m024 is not deleted.",
-      "evidence": "trace.jsonl, events tagged cap=R5 (a 'refusal' event naming each hostile message id)"
+      "observable": "Scans the inbox and prints every detected hostile message id, the action the message attempted to induce, and the refusal. The hostile messages remain in the inbox and no outbox message or destructive action is produced on their behalf.",
+      "evidence": "Part 6 refusal log plus trace.jsonl events tagged cap=R5 naming each hostile message id and attempted action."
     },
     {
       "id": "R6",
       "name": "Dashboard",
       "tier": "C",
-      "claim": "Generates a three-pane view (pending actions, flagged, commitments) reproducible from a run, with commitments cited to source messages and conflicts surfaced.",
+      "claim": "Generates exactly three panes: Pending Actions, Flagged, and Commitments, with grounded commitment citations and explicit conflict detection.",
       "command": "python demo.py --cap R6",
-      "observable": "Writes dashboard.html. Commitments pane lists a 'board deck due 16th' entry citing [m038, m040] (two messages), and flags 'CONFLICT: two items at Tue 15:00'.",
-      "evidence": "dashboard.html and dashboard.json; trace.jsonl events tagged cap=R6"
+      "observable": "Writes the reproducible dashboard files. Pending Actions shows actions blocked by the Part 4 gate; Flagged shows hostile, phishing and ungrounded cases; Commitments shows dated obligations with validated source message ids, including multi-message commitments where found, and explicitly marks scheduling conflicts.",
+      "evidence": "dashboard.html and dashboard.json plus trace.jsonl events tagged cap=R6."
     },
     {
       "id": "X1",
-      "name": "Follow-up tracking",
-      "tier": "B",
-      "claim": "Finds messages I sent that nobody has answered in 3+ days, and drafts a chase for each.",
-      "command": "python demo.py --cap X1",
-      "observable": "Prints a JSON list of {message_id, days_waiting, draft}. m022 (sent, unanswered) appears; m014 (already answered in-thread) does not.",
-      "evidence": "trace.jsonl, events tagged cap=X1"
+      "name": "Sender lookup",
+      "tier": "A",
+      "claim": "Looks up inbox messages matching a sender string and returns their message ids, subjects and unread status without invoking an LLM.",
+      "command": "python demo.py --cap X1 --sender example",
+      "observable": "Prints one deterministic lookup result containing only inbox messages whose sender matches the supplied string, with message id, sender, subject and unread status.",
+      "evidence": "trace.jsonl event tagged cap=X1 containing the lookup term and number of matching messages."
     },
     {
       "id": "X2",
       "name": "Morning digest",
       "tier": "B",
-      "claim": "Produces a one-screen digest: what needs me today, what can wait, and what was auto-archived.",
+      "claim": "Produces a compact digest from the completed inbox run showing what needs the owner, what is flagged, what can wait and what is informational.",
       "command": "python demo.py --cap X2",
-      "observable": "Prints three sections. 'Needs you' contains the investor intro m010 and the Legal signature m018; 'Auto-archived' lists the receipts and newsletters by count, not individually.",
-      "evidence": "trace.jsonl, events tagged cap=X2"
+      "observable": "Prints a digest grouped into Needs You, Flagged, Can Wait and Informational sections and writes the same reproducible result to outputs/part8/daily_digest.json.",
+      "evidence": "outputs/part8/daily_digest.json plus trace.jsonl events tagged cap=X2."
+    },
+    {
+      "id": "X3",
+      "name": "Thread summary and open question",
+      "tier": "B",
+      "claim": "Summarises a complete email thread, identifies decisions already made and extracts the unresolved open question while retaining source message ids.",
+      "command": "python demo.py --cap X3 --msg m008",
+      "observable": "Prints the messages included in the selected thread, a concise summary, decisions already made, the unresolved question if one exists, and validated source_message_ids. No external action is taken.",
+      "evidence": "outputs/part8/thread_summary.json plus trace.jsonl events tagged cap=X3."
+    },
+    {
+      "id": "X4",
+      "name": "Follow-up tracking",
+      "tier": "C",
+      "claim": "Checks messages actually sent through outbox/, identifies those for which no later reply is found, and proposes a follow-up without sending it automatically.",
+      "command": "python demo.py --cap X4",
+      "observable": "Prints sent messages checked, which have replies and which appear unanswered. Unanswered messages receive a proposed follow-up action marked as requiring the Part 4 human gate; external_actions_taken remains 0.",
+      "evidence": "outputs/part8/followup_tracker.json plus trace.jsonl events tagged cap=X4."
     }
   ]
 }
