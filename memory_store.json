@@ -1,0 +1,12 @@
+{
+  "preferences": [
+    {
+      "type": "subject_contains",
+      "value": "legal",
+      "action": "cc:co-founder",
+      "source": "owner_standing_instruction",
+      "updated_at": "2026-09-22T06:14:13.522631+00:00",
+      "created_at": "2026-09-22T06:14:13.522651+00:00"
+    }
+  ]
+}

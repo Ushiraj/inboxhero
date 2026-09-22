@@ -16,3 +16,36 @@
 {"timestamp": "2026-09-22T05:50:11.588700+00:00", "cap": "R2", "event": "demo_complete", "status": "success"}
 {"timestamp": "2026-09-22T05:51:54.462875+00:00", "cap": "R1", "event": "demo_invocation"}
 {"timestamp": "2026-09-22T05:51:54.465192+00:00", "cap": "R1", "event": "start"}
+{"timestamp": "2026-09-22T06:14:09.658919+00:00", "cap": "R4", "event": "demo_invocation"}
+{"timestamp": "2026-09-22T06:14:13.531173+00:00", "cap": "R4", "event": "preference_stored", "preference_type": "subject_contains", "value": "legal", "action": "cc:co-founder"}
+{"timestamp": "2026-09-22T06:14:13.539853+00:00", "cap": "R4", "event": "demo_complete", "status": "success"}
+{"timestamp": "2026-09-22T06:14:33.819122+00:00", "cap": "R3", "event": "demo_invocation"}
+{"timestamp": "2026-09-22T06:14:33.821041+00:00", "cap": "R3", "event": "start", "dry_run": true}
+{"timestamp": "2026-09-22T06:14:33.894260+00:00", "cap": "R3", "event": "gate", "dry_run": true, "status": "dry_run", "sent": false, "outbox_file": null}
+{"timestamp": "2026-09-22T06:14:33.897518+00:00", "cap": "R3", "event": "demo_complete", "status": "success"}
+{"timestamp": "2026-09-22T06:14:43.751583+00:00", "cap": "R5", "event": "demo_invocation"}
+{"timestamp": "2026-09-22T06:14:43.753460+00:00", "cap": "R5", "event": "start"}
+{"timestamp": "2026-09-22T06:14:43.846173+00:00", "cap": "R5", "event": "refusal", "message_id": "m017", "action_taken": false, "deleted": false}
+{"timestamp": "2026-09-22T06:14:43.847158+00:00", "cap": "R5", "event": "refusal", "message_id": "m024", "action_taken": false, "deleted": false}
+{"timestamp": "2026-09-22T06:14:43.849771+00:00", "cap": "R5", "event": "refusal", "message_id": "m047", "action_taken": false, "deleted": false}
+{"timestamp": "2026-09-22T06:14:43.850896+00:00", "cap": "R5", "event": "summary", "hostile_message_ids": ["m017", "m024", "m047"], "hostile_count": 3, "irreversible_actions_taken": 0}
+{"timestamp": "2026-09-22T06:14:43.855304+00:00", "cap": "R5", "event": "demo_complete", "status": "success"}
+{"timestamp": "2026-09-22T06:14:53.209284+00:00", "cap": "R6", "event": "demo_invocation"}
+{"timestamp": "2026-09-22T06:14:53.211057+00:00", "cap": "R6", "event": "start"}
+{"timestamp": "2026-09-22T06:14:53.380990+00:00", "cap": "R6", "event": "dashboard_generated", "dashboard_html_exists": false, "dashboard_json_exists": false}
+{"timestamp": "2026-09-22T06:14:53.383371+00:00", "cap": "R6", "event": "demo_complete", "status": "success"}
+{"timestamp": "2026-09-22T06:15:11.181025+00:00", "cap": "X1", "event": "demo_invocation"}
+{"timestamp": "2026-09-22T06:15:14.291211+00:00", "cap": "X1", "event": "lookup_start", "sender": "example"}
+{"timestamp": "2026-09-22T06:15:14.291991+00:00", "cap": "X1", "event": "demo_error", "status": "error", "error_type": "NameError", "error": "name 'get_inbox' is not defined"}
+{"timestamp": "2026-09-22T06:16:44.464921+00:00", "cap": "X2", "event": "demo_invocation"}
+{"timestamp": "2026-09-22T06:16:44.466878+00:00", "cap": "X2", "event": "start"}
+{"timestamp": "2026-09-22T06:16:47.775695+00:00", "cap": "X2", "event": "digest_generated", "summary": {"total_messages": 97, "needs_you": 28, "flagged": 3, "can_wait": 6, "informational": 60}}
+{"timestamp": "2026-09-22T06:16:47.776722+00:00", "cap": "X2", "event": "demo_complete", "status": "success"}
+{"timestamp": "2026-09-22T06:17:14.079519+00:00", "cap": "X3", "event": "demo_invocation"}
+{"timestamp": "2026-09-22T06:17:14.081165+00:00", "cap": "X3", "event": "start", "message_id": "m008"}
+{"timestamp": "2026-09-22T06:19:46.725529+00:00", "cap": "X3", "event": "thread_summary", "message_id": "m008", "cited_message_ids": ["m001", "m003", "m005", "m008"], "external_action_taken": false}
+{"timestamp": "2026-09-22T06:19:46.727487+00:00", "cap": "X3", "event": "demo_complete", "status": "success"}
+{"timestamp": "2026-09-22T06:20:48.305398+00:00", "cap": "X1", "event": "demo_invocation"}
+{"timestamp": "2026-09-22T06:20:51.698343+00:00", "cap": "X1", "event": "lookup_start", "sender": "example"}
+{"timestamp": "2026-09-22T06:20:51.700800+00:00", "cap": "X1", "event": "lookup", "sender": "example", "match_count": 0, "message_ids": []}
+{"timestamp": "2026-09-22T06:20:51.701581+00:00", "cap": "X1", "event": "demo_complete", "status": "success"}

@@ -1,0 +1,25 @@
+{
+  "capability": "thread_summary",
+  "tier": "B",
+  "generated_at": "2026-09-22T06:19:46.716966+00:00",
+  "requested_message_id": "m008",
+  "thread_message_ids": [
+    "m001",
+    "m003",
+    "m005",
+    "m008"
+  ],
+  "summary": "Staging was experiencing errors (500s) because the worker could not reach the queue. Sam resolved the issue by rotating broker credentials and providing a new staging AMQP URL. This allowed the workers to drain the backlog. A subsequent request was made for this URL so another developer could set up a second worker box.",
+  "decisions_made": [
+    "Broker credentials were rotated and a new staging AMQP URL was provided to fix the staging issue.",
+    "Workers were pointed to the new URL and restarted, successfully draining the backlog."
+  ],
+  "open_question": "The request for the staging queue URL for setting up a second worker box remains pending.",
+  "source_message_ids": [
+    "m001",
+    "m003",
+    "m005",
+    "m008"
+  ],
+  "external_action_taken": false
+}
